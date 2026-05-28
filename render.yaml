@@ -20,11 +20,10 @@ services:
       - key: UPSTASH_REDIS_REST_TOKEN
         sync: false
 
-  # Frontend Web Service
-  - type: web
+  # Frontend Static Site
+  - type: static
     name: rnote-frontend
     env: static
-    region: oregon
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
