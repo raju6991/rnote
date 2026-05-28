@@ -20,17 +20,11 @@ services:
       - key: UPSTASH_REDIS_REST_TOKEN
         sync: false
 
-  # Frontend Web Service
-  - type: web
+  # Frontend Static Site
+  - type: static
     name: rnote-frontend
     env: node
-    region: oregon
     plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
-    startCommand: npx serve -s dist -p $PORT
-    envVars:
-      - key: VITE_API_URL
-        sync: false
-      - key: PORT
-        value: 8080
+    staticPublishPath: ./dist
