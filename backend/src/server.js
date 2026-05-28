@@ -17,6 +17,7 @@ const __dirname = path.resolve();
 app.use(
   cors({
     origin: process.env.NODE_ENV === "production" ? "*" : "http://localhost:5173",
+    credentials: true,
   })
 );
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
