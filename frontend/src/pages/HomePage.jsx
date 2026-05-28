@@ -19,7 +19,8 @@ const HomePage = () => {
       try {
         const res = await api.get("/notes");
         console.log(res.data);
-        setNotes(res.data);
+        const notesData = Array.isArray(res.data) ? res.data : [];
+        setNotes(notesData);
         setIsRateLimited(false);
       } catch (error) {
         console.log("Error fetching notes");
